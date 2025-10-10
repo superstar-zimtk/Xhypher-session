@@ -58,8 +58,9 @@ router.get('/', async (req, res) => {
         
 ╔════════════════════◇
 ║『 SESSION CONNECTED』
-║ 🟦 BOT: PRETTT MD
+║ 🟦 BOT: PRETTY MD
 ║ 🟦 TYPE: BASE64 
+║ 🟦 SUPPORT: https://t.me/xhypher2025
 ╚════════════════════◇
 `;
 
