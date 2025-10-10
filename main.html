@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mbuvi Sessions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0d0d0d;
+      color: #00ffcc;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Live Cyber-Grid Background */
+    .cyber-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #0d0d0d;
+      overflow: hidden;
+    }
+
+    .cyber-grid::before,
+    .cyber-grid::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 50px,
+        rgba(0, 255, 204, 0.1) 50px,
+        rgba(0, 255, 204, 0.1) 52px
+      );
+      animation: gridMove 20s linear infinite;
+    }
+
+    .cyber-grid::after {
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 50px,
+        rgba(0, 255, 204, 0.1) 50px,
+        rgba(0, 255, 204, 0.1) 52px
+      );
+    }
+
+    @keyframes gridMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100px); }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+      margin-top: 60px; /* Space for fixed ticker */
+    }
+
+    /* News Ticker */
+    .news-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .news-container .title {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40%;
+      background: linear-gradient(90deg, #ff2e63, #7209b7);
+      padding: 10px 24px;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      z-index: 1001;
+    }
+
+    .news-container .ticker {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      margin-left: 40%; /* Align ticker content to right of title */
+    }
+
+    .news-container ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      animation: scroll 20s infinite linear;
+    }
+
+    .news-container ul li {
+      white-space: nowrap;
+      padding: 0 24px;
+      color: #00ffcc;
+      font-size: 1rem;
+      text-shadow: 0 0 5px #00ffcc;
+      position: relative;
+    }
+
+    .news-container ul li::after {
+      content: "";
+      width: 1px;
+      height: 100%;
+      background: #00ffcc;
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0.5;
+    }
+
+    .news-container ul li:last-child::after {
+      display: none;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: #ff2e63;
+      text-shadow: 0 0 10px #ff2e63;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #00ffcc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+
+    .feature-card {
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00ffcc;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+    }
+
+    .feature-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: #ff2e63;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: #00ffcc;
+      flex-grow: 1;
+    }
+
+    .feature-card .btn {
+      width: 100%;
+      padding: 0.8em;
+      font-size: 1rem;
+    }
+
+    /* About Section */
+    .about {
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00ffcc;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .about h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #ff2e63;
+      margin-bottom: 15px;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      color: #00ffcc;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00ffcc;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .contact h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: #ff2e63;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      color: #00ffcc;
+      margin-bottom: 20px;
+    }
+
+    /* Buttons */
+    .btn {
+      background: transparent;
+      border: 2px solid #00ffcc;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      color: #00ffcc;
+      text-shadow: 0 0 5px #00ffcc;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.3), transparent);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      background: rgba(0, 255, 204, 0.2);
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+      filter: brightness(0.8);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00ffcc;
+      border-radius: 8px;
+      text-align: center;
+      color: #00ffcc;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      text-shadow: 0 0 5px #00ffcc;
+      width: 100%;
+    }
+
+    .footer b {
+      color: #ff2e63;
+    }
+
+    .footer .social-links {
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer .social-links a {
+      color: #00ffcc;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer .social-links a:hover {
+      color: #ff2e63;
+      text-shadow: 0 0 10px #ff2e63;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px 10px; /* Add left/right spacing for boxes */
+        margin-top: 80px; /* Adjust for mobile ticker */
+      }
+
+      .news-container .title {
+        width: 50%;
+        font-size: 0.7rem; /* Smaller font for one line */
+        padding: 8px 15px;
+      }
+
+      .news-container .ticker {
+        margin-left: 50%;
+      }
+
+      .news-container ul li {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .about h2,
+      .contact h2 {
+        font-size: 1.5rem;
+      }
+
+      .about p,
+      .contact p {
+        font-size: 1rem;
+      }
+
+      .feature-card .btn {
+        font-size: 0.9rem;
+        padding: 0.6em;
+      }
+
+      .footer .social-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cyber-grid"></div>
+  <div class="news-container">
+    <div class="title">Hello Tech Enthusiast</div>
+    <div class="ticker">
+      <ul>
+        <li>welcome to VolTah Xmd sessions!</li>
+        <li>Here you will get session ids for your VolTah bot</li>
+        <li>Bellah Xmd</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Welcome to our session Centre</h1>
+      <p>Your one-stop hub for WhatsApp bot sessions. Get your QR or pair code, deploy VolTah XMD, and join the tech revolution!</p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+      <div class="feature-card">
+        <h3>QR Code Pairing</h3>
+        <p>Scan a QR code to instantly connect your WhatsApp bot with a secure session ID.</p>
+        <button onclick="window.location.href='/qr'" class="btn">Get QR Code</button>
+      </div>
+      <div class="feature-card">
+        <h3>Pair Code</h3>
+        <p>Enter a phone number and get a code to pair your bot without scanning.</p>
+        <button onclick="window.location.href='/pair'" class="btn">Get Pair Code</button>
+      </div>
+      <div class="feature-card">
+        <h3>Deploy VolTah XMD</h3>
+        <p>Deploy your own bot for free here.</p>
+        <button onclick="window.location.href='https://deploy.mbuvitech.site/'" class="btn">Deploy Now</button>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about">
+      <h2>About Us</h2>
+      <p>We’re a crew of tech enthusiasts building tools for WhatsApp bot creators. Our mission? Make bot setup fast, secure, and awesome. Join the VolTah XMD community!</p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact">
+      <h2>Get in Touch</h2>
+      <p>Hit us up on SMS, WhatsApp, or Telegram for support, collabs, or just to talk tech.</p>
+      <!-- GetButton.io widget will appear here -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>©Giddy Tennor</p>
+    <p>Contact <b>Giddy Tennor</b></p>
+    <div class="social-links">
+      <a href="https://youtube.com/@giddynokia" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/giddy_tennor_?igsh=YzZ0NDRoaXFxM2Zk" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/tennormodzcoder" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="https://github.com/Tennor-modz" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+
+  <!-- GetButton.io widget -->
+  <script type="text/javascript">
+    (function () {
+      var options = {
+        sms: "+254787909276",
+        sms_color: "#129BF4",
+        whatsapp: "+254756182478",
+        telegram: "@giddy_tennor",
+        call_to_action: "Message us",
+        button_color: "#FF318E",
+        position: "left",
+        order: "sms,whatsapp,telegram",
+        pre_filled_message: "hey Giddy Tennor i have come with greetings from your session",
+      };
+      var proto = 'https:', host = "getbutton.io", url = proto + '//static.' + host;
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+  </script>
+  <!-- /GetButton.io widget -->
+</body>
+</html>
