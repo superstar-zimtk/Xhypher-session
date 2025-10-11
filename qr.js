@@ -75,12 +75,12 @@ router.get('/', async (req, res) => {
 ╚════════════════════╝
 ╔════════════════════◇
 ║ 『••• _V𝗶𝘀𝗶𝘁 𝗙𝗼𝗿_H𝗲𝗹𝗽 •••』
-║❍ 𝐘𝐨𝐮𝐭𝐮𝐛𝐞: youtube.com/@giddynokia
-║❍ 𝐎𝐰𝐧𝐞𝐫: 263715305976
+║❍ 𝐘𝐨𝐮𝐭𝐮𝐛𝐞: https://www.youtube.com/@Superstar_official10
+║❍ 𝐎𝐰𝐧𝐞𝐫: +263715305976
 ║❍ 𝐑𝐞𝐩𝐨: https://github.com/superstar-zimtk/Pretty-Md
 ║❍ 𝐖𝐚𝐆𝗿𝐨𝐮𝐩: https://chat.whatsapp.com/F4jNrlq1dSyBb4g7eTFryh?mode=wwt
 ║❍ 𝐖𝐚𝐂𝐡𝐚𝐧𝐧𝐞𝐥: https://whatsapp.com/channel/0029Vb9qprVJuyAJxcTO252t
-║❍ 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦: _https://www.instagram.com/giddy_tennor_?igsh=YzZ0NDRoaXFxM2Zk
+║❍ 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦: https://www.instagram.com/superstar_official10?igsh=NGlxeWVqajg2bGw3
 ║ ☬ ☬ ☬ ☬
 ╚═════════════════════╝
 𒂀 Enjoy Pretty-Md
