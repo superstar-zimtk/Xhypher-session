@@ -58,11 +58,36 @@ router.get('/', async (req, res) => {
         
 ╔════════════════════◇
 ║『 SESSION CONNECTED』
-║ 🟦 BOT: PRETTY MD
-║ 🟦 TYPE: BASE64 
-║ 🟦 SUPPORT: https://t.me/xhypher2025
-╚════════════════════◇
-`;
+║ ✨PRETTY-MD 🔷
+║ ✨XHYPHER TECH🔷
+║ ✨️https://t.me/xhypher2025
+╚════════════════════╝
+
+
+---
+
+╔════════════════════◇
+║『 YOU'VE CHOSEN Pretty md 』
+║ -Set the session ID in Heroku:
+║ - SESSION_ID: 
+╚════════════════════╝
+╔════════════════════◇
+║ 『••• _V𝗶𝘀𝗶𝘁 𝗙𝗼𝗿_H𝗲𝗹𝗽 •••』
+║❍ 𝐘𝐨𝐮𝐭𝐮𝐛𝐞: https://www.youtube.com/@Superstar_official10
+║❍ 𝐎𝐰𝐧𝐞𝐫: +263715305976
+║❍ 𝐑𝐞𝐩𝐨: https://github.com/superstar-zimtk/Pretty-Md
+║❍ 𝐖𝐚𝐆𝗿𝐨𝐮𝐩: https://chat.whatsapp.com/F4jNrlq1dSyBb4g7eTFryh?mode=wwt
+║❍ 𝐖𝐚𝐂𝐡𝐚𝐧𝐧𝐞𝐥: https://whatsapp.com/channel/0029Vb9qprVJuyAJxcTO252t
+║❍ 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦: https://www.instagram.com/superstar_official10?igsh=NGlxeWVqajg2bGw3
+║ ☬ ☬ ☬ ☬
+╚═════════════════════╝
+𒂀 Enjoy Pretty-Md
+
+
+---
+
+> _Don't Forget To Give Star⭐ To My Repo_
+______________________________`;
 
                     await Pair_Code_By_Mbuvi_Tech.sendMessage(Pair_Code_By_Mbuvi_Tech.user.id, { text: Toxic_MD_TEXT }, { quoted: session });
 
