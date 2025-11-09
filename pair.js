@@ -72,7 +72,8 @@ router.get('/', async (req, res) => {
 ╚════════════════════` }, { quoted: session });
                     
                     await delay(100);
-                    await client.ws.close();
+                    client.ws.close();
+                    process.exit(0);
                     removeFile('./temp/' + id);
                 } else if (connection === 'close' && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode !== 401) {
                     await delay(10000);
