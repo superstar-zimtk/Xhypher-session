@@ -11,7 +11,7 @@
   "author": "supreme",
   "license": "GPL-3.0 license",
   "dependencies": {
-    "@whiskeysockets/baileys": "github:XdKing2/Malvin-baileys",
+    "@whiskeysockets/baileys": "npm:angularsockets",
     "maher-zubair-baileys": "^6.6.5",
     "qrcode": "^1.5.3",
     "awesome-phonenumber": "^2.64.0",
