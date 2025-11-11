@@ -1,11 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="dark">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>XHYPHER TECH | PAIR CODE</title>
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -40,173 +42,488 @@
     }
     body::before { left:0; animation: slideDown 4s infinite alternate; }
     body::after { right:0; animation: slideDown 4s infinite alternate-reverse; }
-    @keyframes slideDown { 0%{transform: translateY(-100%);} 100%{transform: translateY(100%);} }/* Particles.js background */
-#particles-js {
-  position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;
-}
-/* Navbar */
-.navbar {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  position:fixed; top:0; width:100%; padding:1rem 2rem; z-index:1000;
-  border-bottom:1px solid var(--glass-border);
-  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-}
-.navbar-container {
-  max-width:1200px; margin:0 auto;
-  display:flex; justify-content:flex-start; align-items:center;
-}
-.logo { color:var(--light); text-decoration:none; font-size:1.75rem; font-weight:700; display:flex; align-items:center; gap:0.75rem; }
-.logo i { color:var(--accent); animation:pulse 2s infinite; }
+    @keyframes slideDown { 0%{transform: translateY(-100%);} 100%{transform: translateY(100%);} }
+    
+    /* Particles.js background */
+    #particles-js {
+      position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;
+    }
+    
+    /* Navbar */
+    .navbar {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      position:fixed; top:0; width:100%; padding:1rem 2rem; z-index:1000;
+      border-bottom:1px solid var(--glass-border);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+    .navbar-container {
+      max-width:1200px; margin:0 auto;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .logo { color:var(--light); text-decoration:none; font-size:1.75rem; font-weight:700; display:flex; align-items:center; gap:0.75rem; }
+    .logo i { color:var(--accent); animation:pulse 2s infinite; }
+    
+    /* Social icons */
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: var(--light);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .social-icons a:hover {
+      background: var(--accent);
+      color: var(--dark);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(30,144,255,0.4);
+    }
 
-/* Hero */
-.hero { padding:8rem 2rem 4rem; text-align:center; }
-.hero h1 {
-  font-size:3rem;
-  background:linear-gradient(to right,var(--primary),var(--accent));
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-  animation: glowText 2s ease-in-out infinite alternate;
-}
-@keyframes glowText {
-  from { text-shadow: 0 0 10px var(--primary); }
-  to   { text-shadow: 0 0 20px var(--accent); }
-}
-.typing-text {
-  display:inline-block; overflow:hidden; white-space:nowrap;
-  border-right:3px solid var(--accent);
-  animation:typing 3.5s steps(40,end), blink-caret 0.75s step-end infinite;
-  letter-spacing:2px; font-size:1.3rem; margin-top:1rem;
-}
+    /* Hero */
+    .hero { padding:8rem 2rem 4rem; text-align:center; }
+    .hero h1 {
+      font-size:3rem;
+      background:linear-gradient(to right,var(--primary),var(--accent));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px var(--primary); }
+      to   { text-shadow: 0 0 20px var(--accent); }
+    }
+    .typing-text {
+      display:inline-block; overflow:hidden; white-space:nowrap;
+      border-right:3px solid var(--accent);
+      animation:typing 3.5s steps(40,end), blink-caret 0.75s step-end infinite;
+      letter-spacing:2px; font-size:1.3rem; margin-top:1rem;
+    }
 
-/* Pair Code card */
-.pair-section { padding:2rem 2rem 4rem; flex:1; }
-.pair-card {
-  max-width:480px; margin:0 auto;
-  background:var(--glass-bg);
-  border:1px solid var(--glass-border);
-  border-radius:20px;
-  padding:3rem;
-  backdrop-filter: blur(16px);
-  box-shadow:0 8px 30px rgba(0,0,0,0.5);
-  animation:fadeInUp 0.8s ease forwards;
-}
-.pair-card h2 {
-  text-align:center; color:var(--accent);
-  margin-bottom:1rem; font-size:2rem;
-  position: relative;
-}
-.pair-card h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px; left: 50%; transform: translateX(-50%);
-  width: 60px; height: 4px; background: var(--accent);
-  border-radius: 2px;
-  animation: underlineAnim 1.5s infinite;
-}
-@keyframes underlineAnim {
-  0%,100% { width: 60px; }
-  50%     { width:100px; }
-}
-.pair-card p {
-  color:rgba(255,255,255,0.7);
-  text-align:center; margin-bottom:1.5rem;
-}
-.pair-card label {
-  display:block; color:var(--light);
-  margin-bottom:0.3rem; font-weight:500;
-}
-.pair-card input[type="text"] {
-  width:100%; padding:1rem;
-  border-radius:10px; border:1px solid rgba(255,255,255,0.2);
-  background:rgba(255,255,255,0.15); color:var(--light);
-  margin-bottom:1.5rem;
-}
-.button-group { display:flex; gap:0.5rem; margin-bottom:1rem; }
-.btn {
-  flex:1; padding:0.8rem;
-  border:none; border-radius:10px;
-  font-size:1rem; font-weight:500;
-  background:var(--accent); color:var(--dark);
-  cursor:pointer; position:relative; overflow:hidden;
-}
-.btn::before {
-  content: ''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:rgba(255,255,255,0.2); transition:var(--transition);
-}
-.btn:hover::before { left:0; }
-.btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(30,144,255,0.3); }
+    /* Analytics Section */
+    .analytics-section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .analytics-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .analytics-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .analytics-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      transition: var(--transition);
+    }
+    .analytics-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(30,144,255,0.3);
+    }
+    .analytics-card h3 {
+      color: var(--accent);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .analytics-card h3 i {
+      font-size: 1.5rem;
+    }
+    .stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      border-left: 4px solid var(--accent);
+    }
+    .stat-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+    }
+    .stat-value {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .uptime {
+      color: #00ff00;
+    }
 
-.btn-secondary {
-  background:transparent; color:var(--accent); border:2px solid var(--accent);
-}
-.btn-secondary:hover { background:rgba(30,144,255,0.1); }
+    /* Pair Code card */
+    .pair-section { padding:2rem 2rem 4rem; flex:1; }
+    .pair-card {
+      max-width:480px; margin:0 auto;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      border-radius:20px;
+      padding:3rem;
+      backdrop-filter: blur(16px);
+      box-shadow:0 8px 30px rgba(0,0,0,0.5);
+      animation:fadeInUp 0.8s ease forwards;
+    }
+    .pair-card h2 {
+      text-align:center; color:var(--accent);
+      margin-bottom:1rem; font-size:2rem;
+      position: relative;
+    }
+    .pair-card h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px; left: 50%; transform: translateX(-50%);
+      width: 60px; height: 4px; background: var(--accent);
+      border-radius: 2px;
+      animation: underlineAnim 1.5s infinite;
+    }
+    @keyframes underlineAnim {
+      0%,100% { width: 60px; }
+      50%     { width:100px; }
+    }
+    .pair-card p {
+      color:rgba(255,255,255,0.7);
+      text-align:center; margin-bottom:1.5rem;
+    }
+    .pair-card label {
+      display:block; color:var(--light);
+      margin-bottom:0.3rem; font-weight:500;
+    }
+    .pair-card input[type="text"] {
+      width:100%; padding:1rem;
+      border-radius:10px; border:1px solid rgba(255,255,255,0.2);
+      background:rgba(255,255,255,0.15); color:var(--light);
+      margin-bottom:1.5rem;
+    }
+    .button-group { display:flex; gap:0.5rem; margin-bottom:1rem; }
+    .btn {
+      flex:1; padding:0.8rem;
+      border:none; border-radius:10px;
+      font-size:1rem; font-weight:500;
+      background:var(--accent); color:var(--dark);
+      cursor:pointer; position:relative; overflow:hidden;
+    }
+    .btn::before {
+      content: ''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:rgba(255,255,255,0.2); transition:var(--transition);
+    }
+    .btn:hover::before { left:0; }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(30,144,255,0.3); }
 
-#loading-spinner { text-align:center; margin-bottom:1rem; display:none; }
-#pair {
-  color:var(--light); text-align:center;
-  word-break:break-word; margin-bottom:1rem;
-}
-#copy-code, #validate-code { display:none; width:100%; margin-bottom:0.5rem; }
+    .btn-secondary {
+      background:transparent; color:var(--accent); border:2px solid var(--accent);
+    }
+    .btn-secondary:hover { background:rgba(30,144,255,0.1); }
 
-/* Loading animation */
-.lds-ellipsis { display:inline-block; position:relative; width:80px; height:20px; }
-.lds-ellipsis div { position:absolute; top:8px; width:10px; height:10px; border-radius:50%; background:var(--accent); animation-timing-function:cubic-bezier(0,1,1,0); }
-.lds-ellipsis div:nth-child(1){left:8px; animation:lds1 0.6s infinite;} .lds-ellipsis div:nth-child(2){left:8px; animation:lds2 0.6s infinite;}
-.lds-ellipsis div:nth-child(3){left:32px; animation:lds2 0.6s infinite;} .lds-ellipsis div:nth-child(4){left:56px; animation:lds3 0.6s infinite;}
-@keyframes lds1 {0%{transform:scale(0);}100%{transform:scale(1);}} @keyframes lds3 {0%{transform:scale(1);}100%{transform:scale(0);}} @keyframes lds2 {0%{transform:translate(0,0);}100%{transform:translate(24px,0);}}
-@keyframes fadeInUp {from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-@keyframes typing {from{width:0;}to{width:100%;}} @keyframes blink-caret {from,to{border-color:transparent;}50%{border-color:var(--accent);}} @keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+    #loading-spinner { text-align:center; margin-bottom:1rem; display:none; }
+    #pair {
+      color:var(--light); text-align:center;
+      word-break:break-word; margin-bottom:1rem;
+    }
+    #copy-code, #validate-code { display:none; width:100%; margin-bottom:0.5rem; }
 
-/* Footer */
-footer {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border-top:4px solid var(--accent);
-  padding:1.5rem 2rem;
-  text-align:center;
-  font-size:0.9rem;
-  color:var(--light);
-  box-shadow: 0 -4px 30px rgba(0,0,0,0.3);
-  position: relative;
-  margin-top:auto;
-}
-footer span {
-  color: var(--accent);
-  font-weight:600;
-}
-footer:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 -6px 40px rgba(30,144,255,0.4);
-}
+    /* Deployment Section */
+    .deployment-section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+      width: 100%;
+    }
+    .deployment-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .deployment-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .deployment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .deploy-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .deploy-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(30,144,255,0.3);
+    }
+    .deploy-card h3 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .deploy-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.8rem 1.5rem;
+      background: var(--accent);
+      color: var(--dark);
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      text-align: center;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .deploy-btn:hover {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(30,144,255,0.3);
+    }
+    .download-btn {
+      background: #00ff00;
+      color: #000;
+    }
+    .download-btn:hover {
+      background: transparent;
+      color: #00ff00;
+      border: 2px solid #00ff00;
+    }
+
+    /* Loading animation */
+    .lds-ellipsis { display:inline-block; position:relative; width:80px; height:20px; }
+    .lds-ellipsis div { position:absolute; top:8px; width:10px; height:10px; border-radius:50%; background:var(--accent); animation-timing-function:cubic-bezier(0,1,1,0); }
+    .lds-ellipsis div:nth-child(1){left:8px; animation:lds1 0.6s infinite;} .lds-ellipsis div:nth-child(2){left:8px; animation:lds2 0.6s infinite;}
+    .lds-ellipsis div:nth-child(3){left:32px; animation:lds2 0.6s infinite;} .lds-ellipsis div:nth-child(4){left:56px; animation:lds3 0.6s infinite;}
+    @keyframes lds1 {0%{transform:scale(0);}100%{transform:scale(1);}} @keyframes lds3 {0%{transform:scale(1);}100%{transform:scale(0);}} @keyframes lds2 {0%{transform:translate(0,0);}100%{transform:translate(24px,0);}}
+    @keyframes fadeInUp {from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes typing {from{width:0;}to{width:100%;}} @keyframes blink-caret {from,to{border-color:transparent;}50%{border-color:var(--accent);}} @keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+
+    /* Footer */
+    footer {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border-top:4px solid var(--accent);
+      padding:1.5rem 2rem;
+      text-align:center;
+      font-size:0.9rem;
+      color:var(--light);
+      box-shadow: 0 -4px 30px rgba(0,0,0,0.3);
+      position: relative;
+      margin-top:auto;
+    }
+    footer span {
+      color: var(--accent);
+      font-weight:600;
+    }
+    footer:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 -6px 40px rgba(30,144,255,0.4);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .analytics-grid, .deployment-grid { grid-template-columns: 1fr; }
+      .navbar-container { flex-direction: column; gap: 1rem; }
+      .social-icons { margin-top: 0.5rem; }
+    }
 
   </style>
 </head>
-<body>  <div id="particles-js"></div>  <header class="navbar">
+<body>  
+  <div id="particles-js"></div>  
+  <header class="navbar">
     <div class="navbar-container">
       <a href="#" class="logo"><i class="fas fa-robot"></i> XHYPHER BOTS</a>
+      <div class="social-icons">
+        <a href="https://whatsapp.com/channel/0029VbBSyvgDuMRmt1JTRY12" target="_blank" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://t.me/xhypher2025" target="_blank" title="Telegram">
+          <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="https://github.com/superstar-zimtk" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
     </div>
-  </header>  <section class="hero">
+  </header>  
+  
+  <section class="hero">
     <h1>Pair Code.</h1>
-    <div class="typing-text">Get your SESSION_ID instantly!</div>
-  </section>  <section class="pair-section">
+    <div class="typing-text">Connect to xhyher bots instantly!</div>
+  </section>  
+
+  <section class="analytics-section">
+    <h2>Project Analytics</h2>
+    <div class="analytics-grid">
+      <div class="analytics-card">
+        <h3><i class="fas fa-chart-line"></i> Pretty MD Analytics</h3>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-label">
+              <i class="fab fa-github"></i>
+              <span>GitHub Stars</span>
+            </div>
+            <div class="stat-value">12</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">
+              <i class="fas fa-code-branch"></i>
+              <span>Forks</span>
+            </div>
+            <div class="stat-value">72</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">
+              <i class="fas fa-server"></i>
+              <span>Uptime</span>
+            </div>
+            <div class="stat-value uptime">99.97%</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="analytics-card">
+        <h3><i class="fas fa-robot"></i> Xhypher Ultra Bot</h3>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-label">
+              <i class="fab fa-github"></i>
+              <span>GitHub Stars</span>
+            </div>
+            <div class="stat-value">comming soon</div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">
+              <i class="fas fa-code-branch"></i>
+              <span>Forks</span>
+            </div>
+            <div class="stat-value">coming soon</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">
+              <i class="fas fa-server"></i>
+              <span>Uptime</span>
+            </div>
+            <div class="stat-value uptime">coming soon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="pair-section">
     <div class="pair-card">
       <h2>Xhypher Pair Code</h2>
-      <p>Enter your WhatsApp number with country code to get your pairing code and link.</p><label for="phone-number">Phone Number</label>
-  <input type="text" id="phone-number" placeholder="e.g., +263715XXXXXX">
+      <p>Enter your WhatsApp number with country code to get your pairing code and link.</p>
+      <label for="phone-number">Phone Number</label>
+      <input type="text" id="phone-number" placeholder="e.g., +263715XXXXXX">
 
-  <div class="button-group">
-    <button class="btn" id="generate-code">Get Code & Link</button>
-    <button class="btn btn-secondary" id="validate-code">Validate Session</button>
-  </div>
+      <div class="button-group">
+        <button class="btn" id="generate-code">Get Code & Link</button>
+        <button class="btn btn-secondary" id="validate-code">Validate Session</button>
+      </div>
 
-  <div id="loading-spinner">
-    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-    <p>Generating your code...</p>
-  </div>
-  <div id="pair"></div>
-  <button class="btn" id="copy-code">Copy Code</button>
-</div>
+      <div id="loading-spinner">
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        <p>Generating your code...</p>
+      </div>
+      <div id="pair"></div>
+      <button class="btn" id="copy-code">Copy Code</button>
+    </div>
+  </section>
 
-  </section>  <footer>&copy; <span id="currentYear"></span> XHYPHER TECH. Powered by <span>Superstar</span> 💫</footer>  <script>
+  <section class="deployment-section">
+    <h2>Deploy Pretty MD</h2>
+    <div class="deployment-grid">
+      <div class="deploy-card">
+        <h3><i class="fab fa-heroku"></i> Heroku</h3>
+        <a href="https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2Fsuperstar-zimtk%2pretty-md" class="deploy-btn">Deploy on Heroku</a>
+      </div>
+      <div class="deploy-card">
+        <h3><i class="fas fa-train"></i> Railway</h3>
+        <a href="railway.com" class="deploy-btn">Deploy on Railway</a>
+      </div>
+      <div class="deploy-card">
+        <h3><i class="fas fa-code"></i> Replit</h3>
+        <a href="#" class="deploy-btn">Deploy on Replit</a>
+      </div>
+      <div class="deploy-card">
+        <h3><i class="fas fa-server"></i> Render</h3>
+        <a href="https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/superstar-zimtk/Pretty-md.git" class="deploy-btn">Deploy on Render</a>
+      </div>
+      <div class="deploy-card">
+        <h3><i class="fas fa-download"></i> Download</h3>
+        <a href="https://github.com/superstar-zimtk/Pretty-md/archive/refs/heads/main.zip" class="deploy-btn download-btn">Download Pretty Latest Files</a>
+      </div>
+    </div>
+  </section>
+  
+  <footer>&copy; <span id="currentYear"></span> XHYPHER TECH. Powered by <span>Superstar</span> 💫</footer>  
+  
+  <script>
     // Particles.js init
     particlesJS("particles-js", {
       particles: { number:{value:60}, color:{value:"#00bfff"}, size:{value:1}, line_linked:{enable:true,distance:120,color:"#00bfff",opacity:0.4,width:1}, move:{enable:true,speed:1,out_mode:"out"} },
@@ -217,7 +534,9 @@ footer:hover {
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     // Welcome alert
-    document.addEventListener("DOMContentLoaded", () => { swal("Welcome to xhypher tech by superstar!", "DONT FORGET TO STAR & FORK REPO", "info"); });
+    document.addEventListener("DOMContentLoaded", () => { 
+      swal("Welcome to xhypher tech by superstar!", "DONT FORGET TO STAR & FORK REPO", "info"); 
+    });
 
     // Pair code logic
     const genBtn = document.getElementById('generate-code');
@@ -229,14 +548,27 @@ footer:hover {
 
     async function copyToClipboard() {
       const code = copyBtn.dataset.code;
-      try { await navigator.clipboard.writeText(code); copyBtn.textContent = 'Copied!'; setTimeout(() => copyBtn.textContent = 'Copy Code', 2000); }
-      catch (err) { console.error('Copy failed:', err); }
+      try { 
+        await navigator.clipboard.writeText(code); 
+        copyBtn.textContent = 'Copied!'; 
+        setTimeout(() => copyBtn.textContent = 'Copy Code', 2000); 
+      }
+      catch (err) { 
+        console.error('Copy failed:', err); 
+      }
     }
 
     genBtn.addEventListener('click', async () => {
       const num = phoneInput.value.replace(/\D/g,'');
-      if (!num) { pairDiv.textContent = '❗ Please enter your WhatsApp number with country code.'; return; }
-      spinner.style.display='block'; pairDiv.textContent=''; valBtn.style.display='none'; copyBtn.style.display='none'; genBtn.disabled=true;
+      if (!num) { 
+        pairDiv.textContent = '❗ Please enter your WhatsApp number with country code.'; 
+        return; 
+      }
+      spinner.style.display='block'; 
+      pairDiv.textContent=''; 
+      valBtn.style.display='none'; 
+      copyBtn.style.display='none'; 
+      genBtn.disabled=true;
       try {
         phoneInput.value='+'+num;
         await new Promise(r=>setTimeout(r,1500));
@@ -244,12 +576,23 @@ footer:hover {
         const code=data.code||'❗ Service Unavailable';
         const waLink=`https://wa.me/${num}?text=${encodeURIComponent(code)}`;
         pairDiv.innerHTML=`<p>Your Code: <strong>${code}</strong></p><p><a href="${waLink}" target="_blank" style="color:var(--accent);">Open WhatsApp Link</a></p>`;
-        copyBtn.dataset.code=code; copyBtn.style.display='block'; valBtn.style.display='block';
-      } catch { pairDiv.textContent='❗ Error, please try again later.'; }
-      finally { spinner.style.display='none'; genBtn.disabled=false; }
+        copyBtn.dataset.code=code; 
+        copyBtn.style.display='block'; 
+        valBtn.style.display='block';
+      } catch { 
+        pairDiv.textContent='❗ Error, please try again later.'; 
+      }
+      finally { 
+        spinner.style.display='none'; 
+        genBtn.disabled=false; 
+      }
     });
     copyBtn.addEventListener('click',copyToClipboard);
     valBtn.addEventListener('click',()=>window.location.href='/validate');
-    phoneInput.addEventListener('input',function(){ let v=this.value.replace(/\D/g,''); this.value=v?'+'+v:''; });
-  </script></body>
+    phoneInput.addEventListener('input',function(){ 
+      let v=this.value.replace(/\D/g,''); 
+      this.value=v?'+'+v:''; 
+    });
+  </script>
+</body>
 </html>

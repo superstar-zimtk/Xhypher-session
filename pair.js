@@ -63,16 +63,16 @@ router.get('/', async (req, res) => {
 
                     // Send message after session
                     await client.sendMessage(client.user.id, {text: `
-╔════════════════════
-║ ◇ SESSION CONNECTED ◇
-║ 🔹 BOT: XHYPHER 
+╔════════════════════════
+║ 🔹️SESSION VERIFIED SUCCESSFULLY✅️
+║ 
+║ 🔸️ STATUS : Active and Working
 ║ 🔹 TYPE: BASE64
-║ 🔹 OWNER: XHYPHER
-║ 🔹️SUPPORT: https://t.me/xhypher2025
+║ 🔸️ TUTORIALS: https://youtube.com/@superstar_official10?si=KoHongFEsBJkAjUo
 ╚════════════════════` }, { quoted: session });
                     
                     await delay(100);
-                    client.ws.close();
+                    await client.ws.close();
                     process.exit(0);
                     removeFile('./temp/' + id);
                 } else if (connection === 'close' && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode !== 401) {
