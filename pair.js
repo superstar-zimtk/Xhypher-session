@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
         logger: pino({
           level: 'silent',
         }),
-        browser: ['Ubuntu', 'Microsoft Edge', '20.0.04'],
+        browser: ['Ubuntu', 'Chrome', '20.0.04'],
         auth: state,
       })
 
@@ -63,27 +63,13 @@ router.get('/', async (req, res) => {
 
                     // Send message after session
                     await client.sendMessage(client.user.id, {text: `
-
-*🟢 Session Verified* ┃           
-┃ *TYPE:* BASE64
-┃ *STATUS:* Active ✅
-┃ *Deploy:* https://youtube.com/@superstar_official10?si=KoHongFEsBJkAjUo
-┗━━━━━━━━━━━━━━━━━` }, { quoted: session });
-
-                    // Auto join WhatsApp group
-                    await delay(2000);
-                    const groupInviteCode = 'KjEgiX13hLoDD7sE7STmGR';
-                    try {
-                        await client.groupAcceptInvite(groupInviteCode);
-                        await client.sendMessage(client.user.id, { 
-                            text: `` 
-                        });
-                    } catch (joinError) {
-                        console.log('Group join error:', joinError);
-                        await client.sendMessage(client.user.id, { 
-                            text: `📢 Please join our support group manually:\nhttps://chat.whatsapp.com/KjEgiX13hLoDD7sE7STmGR` 
-                        });
-                    }
+╔════════════════════
+║ ◇ SESSION CONNECTED ◇
+║ 🔹 BOT: XHYPHER 
+║ 🔹 TYPE: BASE64
+║ 🔹 OWNER: XHYPHER
+║ 🔹️SUPPORT: https://t.me/xhypher2025
+╚════════════════════` }, { quoted: session });
                     
                     await delay(100);
                     await client.ws.close();
