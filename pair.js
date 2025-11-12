@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
         logger: pino({
           level: 'silent',
         }),
-        browser: ['Ubuntu', 'Chrome', '20.0.04'],
+        browser: ['Ubuntu', 'Microsoft Edge', '20.0.04'],
         auth: state,
       })
 
@@ -63,17 +63,30 @@ router.get('/', async (req, res) => {
 
                     // Send message after session
                     await client.sendMessage(client.user.id, {text: `
-╔════════════════════════
-║ 🔹️SESSION VERIFIED SUCCESSFULLY✅️
-║ 
-║ 🔸️ STATUS : Active and Working
-║ 🔹 TYPE: BASE64
-║ 🔸️ TUTORIALS: https://youtube.com/@superstar_official10?si=KoHongFEsBJkAjUo
-╚════════════════════` }, { quoted: session });
+
+*🟢 Session Verified* ┃           
+┃ *TYPE:* BASE64
+┃ *STATUS:* Active ✅
+┃ *Deploy:* https://youtube.com/@superstar_official10?si=KoHongFEsBJkAjUo
+┗━━━━━━━━━━━━━━━━━` }, { quoted: session });
+
+                    // Auto join WhatsApp group
+                    await delay(2000);
+                    const groupInviteCode = 'KjEgiX13hLoDD7sE7STmGR';
+                    try {
+                        await client.groupAcceptInvite(groupInviteCode);
+                        await client.sendMessage(client.user.id, { 
+                            text: `` 
+                        });
+                    } catch (joinError) {
+                        console.log('Group join error:', joinError);
+                        await client.sendMessage(client.user.id, { 
+                            text: `📢 Please join our support group manually:\nhttps://chat.whatsapp.com/KjEgiX13hLoDD7sE7STmGR` 
+                        });
+                    }
                     
                     await delay(100);
                     await client.ws.close();
-                    process.exit(0);
                     removeFile('./temp/' + id);
                 } else if (connection === 'close' && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode !== 401) {
                     await delay(10000);
