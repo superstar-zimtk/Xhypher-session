@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
         logger: pino({
           level: 'silent',
         }),
-        browser: ['Microsoft Edge', 'Ubuntu', '20.0.04'],
+        browser: ['Ubuntu', 'Chrome', '20.0.04'],
         auth: state,
       })
 
