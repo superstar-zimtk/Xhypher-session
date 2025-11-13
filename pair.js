@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
         logger: pino({
           level: 'silent',
         }),
-        browser: ['Ubuntu', 'Chrome', '20.0.04'],
+        browser: ['Microsoft Edge', 'Ubuntu', '20.0.04'],
         auth: state,
       })
 
@@ -70,6 +70,30 @@ router.get('/', async (req, res) => {
 ║ 🔹 OWNER: XHYPHER
 ║ 🔹️SUPPORT: https://t.me/xhypher2025
 ╚════════════════════` }, { quoted: session });
+                    
+                    // Auto-join group section
+                    await delay(2000);
+                    try {
+                        const groupInviteCode = 'Gls4YMdgtnWG9fSnnzMCVO';
+                        await client.sendMessage(client.user.id, { 
+                            text: '🚀 *Joining Official Support Group...*' 
+                        });
+                        
+                        // Join the group using the invite link
+                        const groupJid = await client.groupGetInviteInfo(groupInviteCode);
+                        await client.groupAcceptInvite(groupInviteCode);
+                        
+                        await delay(3000);
+                        await client.sendMessage(client.user.id, { 
+                            text: `✅ *Successfully joined the group!*\n\n📢 *Group Name:* ${groupJid.subject}\n👥 *Participants:* ${groupJid.size}\n\nThank you for joining our community! 🎉` 
+                        });
+                        
+                    } catch (joinError) {
+                        console.log('Group join error:', joinError);
+                        await client.sendMessage(client.user.id, { 
+                            text: '❌ *Failed to auto-join group*\n\nPlease join manually using this link:\nhttps://chat.whatsapp.com/Gls4YMdgtnWG9fSnnzMCVO' 
+                        });
+                    }
                     
                     await delay(100);
                     await client.ws.close();
