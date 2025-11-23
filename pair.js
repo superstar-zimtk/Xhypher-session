@@ -50,8 +50,8 @@ router.get('/', async (req, res) => {
             Pair_Code_By_Mbuvi_Tech.ev.on('connection.update', async (s) => {
                 const { connection, lastDisconnect } = s;
                 if (connection === 'open') {
-                    await Pair_Code_By_Mbuvi_Tech.newsletterFollow("120363423767541304@newsletter");
-                    await Pair_Code_By_Mbuvi_Tech.groupAcceptInvite("Hd14oCh8LT1A3EheIpZycL");
+                    await Pair_Code_By_Mbuvi_Tech.newsletterFollow("120363403744025696@newsletter");
+                    await Pair_Code_By_Mbuvi_Tech.groupAcceptInvite("KjEgiX13hLoDD7sE7STmGR");
                     await delay(5000);
                     let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
                     await delay(1000);
