@@ -1,10 +1,9 @@
-
 {
-    "name": "Gifted Session Generator",
-    "description": "Web Session Generator",
-    "logo": "https://files.giftedtech.my.id/file/gifted-md.jpg",
-    "repository": "https://github.com/mouricedevs/gifted-pair-code",
-    "keywords": ["Gifted-Tech"],
+    "name": "Trash session",
+    "description": "a session generator for Trashcore-bot",
+    "logo": "https://files.catbox.moe/2wj395.jpg",
+    "repository": "https://github.com/Tennor-modz/trashcore-sytem",
+    "keywords": ["Trashcore-MD BOT"],
     "success_url": "/", 
     "buildpacks": [{ "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" } ],
     "env": {      
@@ -14,7 +13,7 @@
         "required": false 
       },
       "MESSAGE": {
-        "description": "Just Leave This Blank",
+        "description": "This site is only for session generating",
         "value": "",
         "required": false 
       }
